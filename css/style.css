@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display|Wallpoet&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: #aaa;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#wrap{
+    width: 360px;
+    height: 520px;
+    border: 3px solid beige;
+    background-color: #222;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    border-style: outset;
+    border-top: 20px solid #444;
+    border-left: 20px solid #444;
+    border-bottom: 20px solid #333;
+    border-right: 20px solid #333;
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.7);
+    overflow: hidden;
+}
+
+.output{
+    width: 340px;
+    padding-right: 20px;
+    height: 100px;
+    line-height: 60px;
+    border-top: 20px solid #111;
+    border-left: 20px solid #111;
+    border-bottom: 20px solid #333;
+    border-right: 20px solid #333;
+    box-sizing: border-box;
+    text-align: right;
+    border-radius: 15px;
+    position: absolute;
+    background-color: darkslategrey;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    color:transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: all 1s;
+}
+
+.output:after{
+    display: block;
+    content: '';
+    position: absolute;
+    top: -20px;
+    transform: skewX(-25deg);
+    left: 85px;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255,255,255,0.07);
+}
+.ops2,
+.ops{
+    display: block;
+    position: absolute;
+    top: 40px;
+    line-height: 30px;
+    left: 30px;
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: lighter;
+    z-index: 100;
+    text-align: left;
+    color:darkgoldenrod;
+    text-indent: 15px;
+}
+
+.ops2{
+    top: 65px;
+}
+
+.btn{
+    background-color: rgba(0,0,0,0.3);
+    width: 320px;
+    height: 280px;
+    position: absolute;
+    top: 190px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.btn:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+
+.btn div{
+    width: 70px;
+    float: left;
+    text-align: center;
+    height: 60px;
+    line-height: 50px;
+    margin: 5px 5px 5px;
+    background-color: #666;
+    font-size: 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 5px solid #555;
+    border-style: outset;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 10px 0px #000;
+}
+
+.btn div:active{
+    border-style: inset;
+    background-color: #444;
+    box-shadow: none;
+}
+
+.btn div.result{
+    background-color: darkgoldenrod;
+    border: 5px solid darkgoldenrod;
+    border-style: outset;
+}
+
+.btn div.result:active{
+    background-color: rgb(150,100,0);
+    border-style: inset;
+}
+
+
+.btn div:nth-child(13),
+.btn div:nth-child(14),
+.btn div:nth-child(15){margin-bottom: 0;}
+
+.output.active:before{
+    content:'_';
+    font-size: 20px;
+}
+
+.copy{
+    position: absolute;
+    bottom: 8px;
+    left: 15px;
+    font-size: 12px;
+    color: #555;
+}
+
+.ctrl{
+    position: absolute;
+    width: 100%;
+    top: 140px;
+}
+
+.ctrl div{
+    width: 65px;
+    height: 35px;
+    border-radius: 30px;
+    border: 2.5px solid #444;
+    border-style: outset;
+    box-sizing: border-box;
+}
+
+.onoff{
+    float: left;
+    margin-left: 20px;
+    background-color: #111;
+    position: relative;
+    overflow: hidden;
+}
+
+.onoff span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(#111 0%, #222 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 30px;
+}
+
+.onoff p{
+    background-color: darkgoldenrod;
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: -30px;
+    border-radius: 15px;
+    text-indent: 6px;
+    color: darkgoldenrod;
+    line-height: 30px;
+}
+
+.clr{
+    float: right;
+    margin-right: 20px;
+    line-height: 30px;
+    text-align: center;
+    color:darkgoldenrod;
+    background-color: #333;
+}
+
+.clr:active{
+    border-style: inset;
+    background-color: #222;
+}
+
+.cover{
+    position: absolute;
+    top: 180px;
+    width: 100%;
+    height: 60%;
+}
+
+
+.glitter{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0)0%,rgba(255,255,255,0.1)50%,rgba(0,0,0,0)100%);
+    animation-name: glitter;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards;
+    position: absolute;
+    top: -100%;
+    left: -100%;
+}
+
+
+
+/************************************/
+
+#clock{
+    width: 470px;
+    height: 470px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.7);
+    background: linear-gradient(135deg, #777 0%, #111 100%);
+    padding: 30px;
+    font-family: arial;
+    color: rgb(150,100,0);
+    font-size: 60px;
+    text-align: center;
+    line-height: 650px;
+}
+
+#clock .wrap{
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    border: 20px solid #222;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: darkslategrey;
+    overflow: hidden;
+}
+
+#clock>div>div{
+    transform-origin: bottom;
+}
+.hr{
+    width: 10px;
+    height: 135px;
+    background-color: #222;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    margin-left: -5px;
+}
+
+.min{
+    width: 10px;
+    height: 200px;
+    background-color: #666;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    margin-left: -5px;
+    
+}
+
+.sec{
+    width: 4px;
+    height: 210px;
+    background-color: darkgoldenrod;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    margin-left: -2px;
+}
+
+p.circle{
+    width: 15px;
+    height: 15px;
+    background-color: darkgoldenrod;
+    position: absolute;
+    bottom: -7.5px;
+    right: -6px;
+    border-radius: 50%;
+}
+
+p.glitter_2{
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, rgba(255,255,255,0)30%,rgba(255,255,255,0.2)55%,rgba(0,0,0,0)80%);
+    animation-name: glitter;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    animation-duration: 3.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: backwards;
+}
+
+.window{
+    width: 110px;
+    height: 30px;
+    background-color: #ccc;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 4px;
+    z-index: -10;
+}
+
+.window .date{
+    width: 40px;
+    height: 30px;
+    float: left;
+    background-color: #333;
+    text-indent: -2px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.window .day{
+    width: 70px;
+    height: 30px;
+    background-color: darkgoldenrod;
+    float: right;
+    color: #333;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+@keyframes glitter{
+    0%{
+        left: -100%;
+        top: -100%;
+    }
+    
+    15%{
+        left: 100%;
+        top: 100%;
+    }
+    
+    100%{
+        left: 100%;
+        top: 100%;
+    }
+}
